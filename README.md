@@ -7,7 +7,7 @@ This repository contains deployment files needed for deployment of HOPE_FOREMAN 
 * Kubernetes
 * Helm
 * PostgreSQL * 
-* 4 preconfigured domains for application (HTTPS is needed *):
+* 4 preconfigured domains for application (HTTPS is needed) *:
     * appname.domain.com (HOPE_FOREMAN client application - should replace ``<client_url>`` variable in yml files)
     * terminal.appname.domain.com (operators terminal client application - should replace ``<terminal_url>`` variable in yml files)
     * api.appname.domain.com (application api - should replace ``<api_base_url>`` variable in yml files)
@@ -20,8 +20,14 @@ To run application stack you will need **kubernetes cluster**. If you do not hav
 Kubernetes cluster with configured access to **docker.ramp.eu** repository.
 
 ## Kubernetes running on localhost
-You can use ``./initilize.sh`` script to run application on local kubernetes. Database will be exposed under ``localhost:31066``. Check script output for generated database 
-password.
+You can use ``./initilize.sh`` script to run application on local kubernetes. Please fill ``<repo_user>`` and ``<repo_cli_password>`` to give access to RAMP docker and helm 
+repository.
+
+Database will be exposed under ``localhost:31066``. Check script output for generated database password.
+* HOT-MAMMA client will be exposed under: http://localhost:31778
+* HOT-MAMMA server will be exposed under: http://localhost:31777
+* PEPESHA terminal will be exposed under: http://localhost:31779
+
 
 ## Database initialization
 To initialize database you will need **Docker** to run initialization scripts.
@@ -31,4 +37,6 @@ PGADMIN_PASSWORD`` (powershell).
 Default ``user/password`` is ``app_user/app_pass``.
 
 ## Helm charts
-In ``Helm`` directory you can find packed helm charts required for running the application. Pleas note the correct order of launch (check ``initialize.sh`` script for details).
+Helm charts are available from docker.ramp.eu/masta-pvt repository or in ``Helm`` directory. 
+
+Please note the correct order of launch (check ``initialize.sh`` script for details).

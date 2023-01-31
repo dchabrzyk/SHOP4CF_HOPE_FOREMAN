@@ -1,0 +1,14 @@
+﻿image:
+  repository: docker.ramp.eu/masta-pvt/hope-foreman-kafka-stream
+  tag: latest
+  pullPolicy: Always
+imagePullSecrets:
+  - name: ramp
+ingress:
+  enabled: false
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPUUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
